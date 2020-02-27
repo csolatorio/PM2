@@ -225,7 +225,6 @@
                     </div>
                 </div>
             </div>
-            <a href="/customers/create" class="btn btn-primary">Add Customer</a>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -243,6 +242,8 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                        <a href="/customers/create" class="btn btn-primary"><i data-feather="user-plus" class="feather-icon"></i><span
+                                    class="hide-menu"> Add</span></a>
                                         <thead>
                                             <tr>
                                                 <th>Date</th>
@@ -253,6 +254,7 @@
                                                 <th>Destination</th>
                                                 <th>Description</th>
                                                 <th>Amount</th>
+                                                <th>Action</th>
                                             </tr>
                                             @foreach($customers as $customer)
                                             <tr>
@@ -264,6 +266,7 @@
                                                 <th>{{$customer->cus_destination}}</th>
                                                 <th>{{$customer->cus_description}}</th>
                                                 <th>{{$customer->cus_amount}}</th>
+                                                 <th><a href="/customers/edit"><i data-feather="edit" class="feather-icon"></a></th>
                                             </tr>
                                             @endforeach
                                         </thead>

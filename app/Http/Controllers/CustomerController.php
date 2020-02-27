@@ -13,7 +13,8 @@ class CustomerController extends Controller
     }
 
     public function create(){
-    	return view('customer.create');
+        $customers = \App\Customer::all();
+    	return view('customer.create', compact('customers'));
     }
 
     public function store(Request $request){
@@ -29,5 +30,23 @@ class CustomerController extends Controller
       ]);
       \App\Customer::create($data);
       return redirect('/customers');
+    }
+    public function edit()
+    {
+        $customer = \App\Customer::all();
+        return view('customer.edit', compact('customer'));
+    }
+    public function update(Request $request, Customer $customer)
+    {
+        $customer ->update([
+         'cus_truck'=>$request->cus_truck,
+        'cus_vanqty'=>$request->cus_vanqty,
+        'cus_vannumber'=>$request->cus_vannumber,
+        'cus_name'=>$request->cus_name,
+        'cus_destination'=>$request->cus_destination,
+        'cus_description'=>$request->cus_description,
+        'cus_amount'=>$request->cus_amount
+        ]);
+        return view('customer.edit', compact('customer'));
     }
 }

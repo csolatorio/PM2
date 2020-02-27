@@ -212,7 +212,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Employees</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Employee</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 
@@ -225,7 +225,6 @@
                     </div>
                 </div>
             </div>
-            
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -236,40 +235,51 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-
-                <!-- basic table -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-5">
                         <div class="card">
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                        <a href="/employees/create" class="btn btn-success"><i data-feather="user-plus" class="feather-icon"></i><span
-                                    class="hide-menu"> Add</span></a>
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Address</th>
-                                                <th>Phone Number</th>
-                                                <th>Actions</th>
-
-                                            @foreach($employees as $employee)
-                                            <tr>
-                                                <th>{{$employee->emp_id}}</th>
-                                                <th>{{$employee->emp_name}}</th>
-                                                <th>{{$employee->emp_address}}</th>
-                                                <th>{{$employee->emp_phone}}</th>
-                                                <th><a href="/employees/edit"><i data-feather="edit" class="feather-icon"></a></th>
-                                            </tr>
-                                            @endforeach
-                                        </thead>
-                                    </table>
-                                </div>
+                                <h4 class="card-title">Add Employee</h4>
+                                <form method="post" action="/employees">
+                                    @csrf
+                                    @method('PATCH')
+                                    <div class="form-body">
+                                        <label>ID </label>
+                                        <div class="row">
+                                                <div class="form-group">
+                                                    <input type="text" name="emp_id" class="form-control" placeholder="">
+                                                </div>
+                                        </div>
+                                        <label>Name</label>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                    <input type="text" name="emp_name" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        <label>Address</label>
+                                        <div class="row">
+                                           <div class="form-group">
+                                                    <input type="text" name="emp_address" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        <label>Phone</label>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                    <input type="text" name="emp_phone" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="form-actions">
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-success">Update</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- basic table -->
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">

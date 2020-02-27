@@ -10,17 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', function (Request $request){
+	Auth::guard()->logout();
+        $request->session()->invalidate();
 
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+});
 Route::get('/customers', 'CustomerController@index');
 Route::get('/customers/create', 'CustomerController@create');
+Route::get('/customers/{id}', 'CustomerController@update');
 Route::post('/customers', 'CustomerController@store');
 
 Route::get('/employees', 'EmployeeController@index');

@@ -236,19 +236,41 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- basic table -->
-                <div>
+                 <div class="row">
+                    <div class="col-5">
+                        <div class="card">
+                            <div class="card-body">
                   <form method="post" action="/customers">
                     @csrf
-                    <input type="text" name="cus_truck" placeholder="Truck">
-                    <input type="text" name="cus_vanqty" placeholder="Van Qty">
+                    <label>Trucks Waybill No.</label>
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="number" name="cus_truck" class="form-control" placeholder="">
+                       </div>
+                    </div>
+                    <!-- <input type="text" name="cus_vanqty" placeholder="Van Qty"> -->
+                    <select name="cus_vanqty" class="custom-select">
+                      <option placeholder="Size of Van"></option>
+                      <option value="10 ft.">10 ft.</option>
+                      <option value="20 ft.">20 ft.</option>
+                      <option value="40 ft.">40 ft.</option>
+                    </select>
                     <input type="text" name="cus_vannumber" placeholder="Van Number">
                     <input type="text" name="cus_name" placeholder="Name">
                     <input type="text" name="cus_destination" placeholder="Destination">
                     <input type="text" name="cus_description" placeholder="Description">
                     <input type="text" name="cus_amount" placeholder="Amount">
-                    <button type="submit">Add</button>
+                    <div class="form-actions">
+                     <div class="text-right">
+                        <button type="submit" class="btn btn-info">Add</button>
+                        <button type="reset" class="btn btn-dark">Reset</button>
+                    </div>
                   </form>
                 </div>
+
+            </div>
+        </div>
+    </div>
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">

@@ -140,8 +140,6 @@
                                         class="svg-icon mr-2 ml-1"></i>
                                     Logout</a>
                                 <div class="dropdown-divider"></div>
-                                <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">View
-                                        Profile</a></div>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -212,7 +210,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Employees</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Customers</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 
@@ -225,7 +223,6 @@
                     </div>
                 </div>
             </div>
-            
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -236,40 +233,43 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-
                 <!-- basic table -->
-                <div class="row">
-                    <div class="col-12">
+                 <div class="row">
+                    <div class="col-5">
                         <div class="card">
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                        <a href="/employees/create" class="btn btn-success"><i data-feather="user-plus" class="feather-icon"></i><span
-                                    class="hide-menu"> Add</span></a>
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Address</th>
-                                                <th>Phone Number</th>
-                                                <th>Actions</th>
-
-                                            @foreach($employees as $employee)
-                                            <tr>
-                                                <th>{{$employee->emp_id}}</th>
-                                                <th>{{$employee->emp_name}}</th>
-                                                <th>{{$employee->emp_address}}</th>
-                                                <th>{{$employee->emp_phone}}</th>
-                                                <th><a href="/employees/edit"><i data-feather="edit" class="feather-icon"></a></th>
-                                            </tr>
-                                            @endforeach
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                  <form method="post" action="{{ route('shows.update', $show->id) }}">
+                    @csrf
+                    @method('PATCH')
+                    <label>Trucks Waybill No.</label>
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="number" name="cus_truck" class="form-control" placeholder="" value="{{ $customers->cus_truck }}">
+                       </div>
                     </div>
+                    <!-- <input type="text" name="cus_vanqty" placeholder="Van Qty"> -->
+                    <select name="cus_vanqty" class="custom-select">
+                      <option placeholder="Size of Van"></option>
+                      <option value="10 ft.">10 ft.</option>
+                      <option value="20 ft.">20 ft.</option>
+                      <option value="40 ft.">40 ft.</option>
+                    </select>
+                    <input type="text" name="cus_vannumber" placeholder="Van Number" value="{{ $customers->cus_vannumber}}">
+                    <input type="text" name="cus_name" placeholder="Name" value="{{ $customers->cus_name }}">
+                    <input type="text" name="cus_destination" placeholder="Destination" value="{{ $customers->cus_destination }}">
+                    <input type="text" name="cus_description" placeholder="Description" value="{{ $customers->cus_description }}">
+                    <input type="text" name="cus_amount" placeholder="Amount" value="{{ $customers->cus_amount }}">
+                    <div class="form-actions">
+                     <div class="text-right">
+                        <button type="submit" class="btn btn-info">Add</button>
+                        <button type="reset" class="btn btn-dark">Reset</button>
+                    </div>
+                  </form>
                 </div>
+
+            </div>
+        </div>
+    </div>
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">

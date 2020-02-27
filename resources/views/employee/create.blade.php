@@ -240,31 +240,31 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Add Employee</h4>
-                                <form action="/employees">
+                                <form method="post" action="/employees">
                                     @csrf
                                     <div class="form-body">
                                         <label>ID </label>
                                         <div class="row">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="">
+                                                    <input type="text" name="emp_id" class="form-control" placeholder="">
                                                 </div>
                                         </div>
                                         <label>Name</label>
                                         <div class="row">
                                             <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="">
+                                                    <input type="text" name="emp_name" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                         <label>Address</label>
                                         <div class="row">
                                            <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="">
+                                                    <input type="text" name="emp_address" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                         <label>Phone</label>
                                         <div class="row">
                                             <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="">
+                                                    <input type="text" name="emp_phone" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
