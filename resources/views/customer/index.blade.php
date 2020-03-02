@@ -11,6 +11,9 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AB Trucking Services</title>
+
+    <!-- This page plugin CSS -->
+    <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
@@ -122,26 +125,10 @@
                                         class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="mail"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    Inbox</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    Account Setting</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
+                                
+                                <a class="dropdown-item" href="/logout"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Logout</a>
-                                <div class="dropdown-divider"></div>
-                                <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">View
-                                        Profile</a></div>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -236,40 +223,51 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- basic table -->
+                 <a href="/customers/create" class="btn btn-success"><i data-feather="user-plus" class="feather-icon"></i><span class="hide-menu"> Add</span></a>
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                        <a href="/customers/create" class="btn btn-primary"><i data-feather="user-plus" class="feather-icon"></i><span
-                                    class="hide-menu"> Add</span></a>
+                                    <table id="default_order" class="table table-striped table-bordered display no-wrap"
+                                        style="width:100%">
                                         <thead>
                                             <tr>
+                                                <th>Customer Name</th>
                                                 <th>Date</th>
                                                 <th>Way Bill No.</th>
                                                 <th>Qty of Van</th>
                                                 <th>Van Number</th>
-                                                <th>Customer Name</th>
+                                                
                                                 <th>Destination</th>
                                                 <th>Description</th>
                                                 <th>Amount</th>
-                                                <th>Action</th>
+                                                <th>Manage</th>
                                             </tr>
+                                            
+
+                                        </thead>
+                                        <tbody>
                                             @foreach($customers as $customer)
                                             <tr>
+                                                <th>{{$customer->cus_name}}</th>
                                                 <th>{{$customer->created_at}}</th>
                                                 <th>{{$customer->cus_truck}}</th>
                                                 <th>{{$customer->cus_vanqty}}</th>
                                                 <th>{{$customer->cus_vannumber}}</th>
-                                                <th>{{$customer->cus_name}}</th>
                                                 <th>{{$customer->cus_destination}}</th>
                                                 <th>{{$customer->cus_description}}</th>
                                                 <th>{{$customer->cus_amount}}</th>
-                                                 <th><a href="/customers/edit"><i data-feather="edit" class="feather-icon"></a></th>
+                                                 <th><a href="/customers/{{$customer->id}}"><i data-feather="edit" class="feather-icon"></a></th>
                                             </tr>
                                             @endforeach
-                                        </thead>
+                                            
+                                        </tbody>
+                                         <tr>
+                                            <td>Total Amount</td>
+                                            <td colspan="9" style="text-align: right; padding-right: 7rem;">{{number_format($grandTotal , 2)}}</td>
+                                        </tr>
                                     </table>
                                 </div>
                             </div>
@@ -312,6 +310,11 @@
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.min.js"></script>
+     <!--This page plugins -->
+    <script src="../assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../dist/js/pages/datatable/datatable-basic.init.js"></script>
+
+
 </body>
 
 </html>

@@ -21,7 +21,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 </head>
 
 <body>
@@ -96,19 +95,7 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
                         <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item d-none d-md-block">
-                            <a class="nav-link" href="javascript:void(0)">
-                                <form>
-                                    <div class="customize-input">
-                                        <input class="form-control custom-shadow custom-radius border-0 bg-white"
-                                            type="search" placeholder="Search" aria-label="Search">
-                                        <i class="form-control-icon" data-feather="search"></i>
-                                    </div>
-                                </form>
-                            </a>
-                        </li>
+                        
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
@@ -122,24 +109,10 @@
                                         class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="mail"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    Inbox</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    Account Setting</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
+                                
+                                <a class="dropdown-item" href="/logout"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Logout</a>
-                                <div class="dropdown-divider"></div>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -149,12 +122,6 @@
                 </div>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar" data-sidebarbg="skin6">
@@ -172,11 +139,11 @@
                                     class="hide-menu">Customers
                                 </span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/employees"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html"
                                 aria-expanded="false"><i data-feather="users" class="feather-icon"></i><span
                                     class="hide-menu">Employees</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link" href="/reports"
+                        <li class="sidebar-item"> <a class="sidebar-link" href="/employees"
                                 aria-expanded="false"><i data-feather="paperclip" class="feather-icon"></i><span
                                     class="hide-menu">Reports
                                 </span></a>
@@ -198,27 +165,18 @@
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-       <div class="page-wrapper">
+        <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Customers</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Calendar</h4>
                         <div class="d-flex align-items-center">
-                            <nav aria-label="breadcrumb">
-                                
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-5 align-self-center">
-                        <div class="customize-input float-right">
                         </div>
                     </div>
                 </div>
@@ -230,49 +188,61 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- basic table -->
-                 <div class="row">
-                    <div class="col-5">
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                  <form method="post" action="{{ route('shows.update', $show->id) }}">
-                    @csrf
-                    @method('PATCH')
-                    <label>Trucks Waybill No.</label>
-                    <div class="row">
-                        <div class="form-group">
-                            <input type="number" name="cus_truck" class="form-control" placeholder="" value="{{ $customers->cus_truck }}">
-                       </div>
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-lg-3 border-right pr-0">
+                                        <div class="card-body border-bottom">
+                                            <h4 class="card-title mt-2">Drag & Drop Event</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div id="calendar-events" class="">
+                                                        <div class="calendar-events mb-3" data-class="bg-info"><i
+                                                                class="fa fa-circle text-info mr-2"></i>Birthdays</div>
+                                                        <div class="calendar-events mb-3" data-class="bg-success"><i
+                                                                class="fa fa-circle text-success mr-2"></i> Appointment
+                                                        </div>
+                                                        <div class="calendar-events mb-3" data-class="bg-danger"><i
+                                                                class="fa fa-circle text-danger mr-2"></i>Meetings
+                                                        </div>
+                                                        <div class="calendar-events mb-3" data-class="bg-warning"><i
+                                                                class="fa fa-circle text-warning mr-2"></i>Pay Day
+                                                        </div>
+                                                    </div>
+                                                    <!-- checkbox -->
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="drop-remove">
+                                                        <label class="custom-control-label" for="drop-remove">Remove
+                                                            after drop</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="card-body b-l calender-sidebar">
+                                            <div id="calendar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- <input type="text" name="cus_vanqty" placeholder="Van Qty"> -->
-                    <select name="cus_vanqty" class="custom-select">
-                      <option placeholder="Size of Van"></option>
-                      <option value="10 ft.">10 ft.</option>
-                      <option value="20 ft.">20 ft.</option>
-                      <option value="40 ft.">40 ft.</option>
-                    </select>
-                    <input type="text" name="cus_vannumber" placeholder="Van Number" value="{{ $customers->cus_vannumber}}">
-                    <input type="text" name="cus_name" placeholder="Name" value="{{ $customers->cus_name }}">
-                    <input type="text" name="cus_destination" placeholder="Destination" value="{{ $customers->cus_destination }}">
-                    <input type="text" name="cus_description" placeholder="Description" value="{{ $customers->cus_description }}">
-                    <input type="text" name="cus_amount" placeholder="Amount" value="{{ $customers->cus_amount }}">
-                    <div class="form-actions">
-                     <div class="text-right">
-                        <button type="submit" class="btn btn-info">Add</button>
-                        <button type="reset" class="btn btn-dark">Reset</button>
-                    </div>
-                  </form>
                 </div>
-
             </div>
-        </div>
-    </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center text-muted">
+            <footer class="footer text-center">
+               
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -285,27 +255,25 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
-    <!-- End Wrapper -->
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/extra-libs/taskboard/js/jquery.ui.touch-punch-improved.js"></script>
+    <script src="../assets/extra-libs/taskboard/js/jquery-ui.min.js"></script>
     <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- apps -->
-    <!-- apps -->
     <script src="../dist/js/app-style-switcher.js"></script>
     <script src="../dist/js/feather.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
     <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <!-- themejs -->
-    <!--Menu sidebar -->
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <script src="../assets/libs/moment/min/moment.min.js"></script>
+    <script src="../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="../dist/js/pages/calendar/cal-init.js"></script>
 </body>
 
 </html>

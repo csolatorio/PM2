@@ -234,37 +234,71 @@
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
-                <!-- ============================================================== -->
+                <!-- ===================
+                    =========================================== -->
                 <!-- basic table -->
                  <div class="row">
                     <div class="col-5">
                         <div class="card">
                             <div class="card-body">
-                  <form method="post" action="/customers">
+                                <h4 class="card-title">Add Customer</h4>
+                     <form method="post" action="/customers">
                     @csrf
+                    <div class="form-body">
+
+                    <label>Customer Name</label>
+                    <div class="row">
+                    <div class="form-group">
+                        <input type="text" name="cus_name" class="form-control">
+                    </div>
+                    </div>
+
                     <label>Trucks Waybill No.</label>
                     <div class="row">
-                        <div class="form-group">
-                            <input type="number" name="cus_truck" class="form-control" placeholder="">
-                       </div>
+                    <div class="form-group">
+                        <input type="number" name="cus_truck" class="form-control">
                     </div>
-                    <!-- <input type="text" name="cus_vanqty" placeholder="Van Qty"> -->
-                    <select name="cus_vanqty" class="custom-select">
-                      <option placeholder="Size of Van"></option>
-                      <option value="10 ft.">10 ft.</option>
-                      <option value="20 ft.">20 ft.</option>
-                      <option value="40 ft.">40 ft.</option>
-                    </select>
-                    <input type="text" name="cus_vannumber" placeholder="Van Number">
-                    <input type="text" name="cus_name" placeholder="Name">
-                    <input type="text" name="cus_destination" placeholder="Destination">
-                    <input type="text" name="cus_description" placeholder="Description">
-                    <input type="text" name="cus_amount" placeholder="Amount">
+                    </div>
+
+                    <label>Van Qty</label>
+                    <div class="row">
+                    <div class="form-group">
+                        <input type="text" name="cus_vanqty" class="form-control">
+                    </div>
+                    </div>
+
+                    <label>Van Number</label>
+                    <div class="row">
+                    <div class="form-group">
+                        <input type="text" name="cus_vannumber" class="form-control">
+                    </div>
+                    </div>
+                    <label>Destination</label>
+                    <div class="row">
+                    <div class="form-group">
+                        <input type="text" name="cus_destination" class="form-control">
+                    </div>
+                    </div>
+
+                    <label>Description</label>
+                    <div class="row">
+                    <div class="form-group">
+                    <input type="text" name="cus_description" class="form-control">
+                    </div>
+                    </div>
+
+                    <label>Amount</label>
+                    <div class="row">
+                    <div class="form-group">
+                    <input type="text" name="cus_amount" class="form-control">
+                    </div>
+                    </div>
+
                     <div class="form-actions">
                      <div class="text-right">
-                        <button type="submit" class="btn btn-info">Add</button>
-                        <button type="reset" class="btn btn-dark">Reset</button>
+                        <button type="submit" class="btn btn-success">Add</button>
                     </div>
+                </div>
                   </form>
                 </div>
 

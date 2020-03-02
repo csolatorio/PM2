@@ -239,15 +239,15 @@
                     <div class="col-5">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Add Employee</h4>
-                                <form method="post" action="/employees">
+                                <h4 class="card-title">Edit Employee</h4>
+                                <form method="post" action="/employees/{{ $employees->id }}">
                                     @csrf
                                     @method('PATCH')
                                     <div class="form-body">
                                         <label>ID </label>
                                         <div class="row">
                                                 <div class="form-group">
-                                                    <input type="text" name="emp_id" class="form-control" placeholder="">
+                                                    <input type="text" name="id" class="form-control" placeholder="">
                                                 </div>
                                         </div>
                                         <label>Name</label>

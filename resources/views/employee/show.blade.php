@@ -11,9 +11,6 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AB Trucking Services</title>
-
-    <!-- This page plugin CSS -->
-    <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
@@ -125,10 +122,26 @@
                                         class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                
-                                <a class="dropdown-item" href="/logout"><i data-feather="power"
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    My Balance</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="mail"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Inbox</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Account Setting</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Logout</a>
+                                <div class="dropdown-divider"></div>
+                                <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">View
+                                        Profile</a></div>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -196,10 +209,12 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Employees</h4>
+            <!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+         <div class="modal-header">
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Employee</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 
@@ -212,53 +227,68 @@
                     </div>
                 </div>
             </div>
-            
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
+
+            <!-- Add Modal  -->
+
+
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <a href="/employees/create" class="btn btn-success"><i data-feather="user-plus" class="feather-icon"></i><span class="hide-menu"> Add</span></a>
-
-                <!-- basic table -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-5">
                         <div class="card">
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Address</th>
-                                                <th>Phone Number</th>
-                                                <th>Manage</th>
+                                <h4 class="card-title">Edit Employee</h4>
+                                <form method="post" action="/employees/{{ $employee->id }}">
+                                    @csrf
+                                    @method('PATCH')
+                                    <div class="form-body">
+                                        <label>ID </label>
+                                        <div class="row">
+                                        <div class="form-group">
+                                            <input type="text" name="id" class="form-control" value="{{ $employee->id }}">
+                                        </div>
+                                        </div>
 
+                                        <label>Name</label>
+                                        <div class="row">
+                                        <div class="form-group">
+                                            <input type="text" name="emp_name" class="form-control" value="{{ $employee->emp_name }}">
+                                        </div>
+                                        </div>
+
+                                        <label>Address</label>
+                                        <div class="row">
+                                        <div class="form-group">
+                                            <input type="text" name="emp_address" class="form-control" value="{{ $employee->emp_address }}">
+                                        </div>
+                                        </div>
                                         
-                                        </thead>
-                                        <tbody>
-                                                @foreach($employees as $employee)
-                                            <tr>
-                                                <th>{{$employee->id}}</th>
-                                                <th>{{$employee->emp_name}}</th>
-                                                <th>{{$employee->emp_address}}</th>
-                                                <th>{{$employee->emp_phone}}</th>
-                                                <th><a href="/employees/{{ $employee->id}}"><i data-feather="edit" class="feather-icon"></a></th>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        <label>Phone</label>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                    <input type="text" name="emp_phone" class="form-control" value="{{ $employee->emp_phone }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="form-actions">
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-info">Update</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- basic table -->
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
@@ -295,16 +325,6 @@
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.min.js"></script>
-    <!--This page plugins -->
-    <script src="../assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../dist/js/pages/datatable/datatable-basic.init.js"></script>
-
-    <script type="text/javascript">
-    $(document).ready( function () {
-    $('#zero_config').DataTable();
-} );
-</script>
-
 </body>
 
 </html>

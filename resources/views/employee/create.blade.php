@@ -243,24 +243,28 @@
                                 <form method="post" action="/employees">
                                     @csrf
                                     <div class="form-body">
+
                                         <label>ID </label>
                                         <div class="row">
                                                 <div class="form-group">
-                                                    <input type="text" name="emp_id" class="form-control" placeholder="">
+                                                    <input type="text" name="id" class="form-control" placeholder="">
                                                 </div>
                                         </div>
+
                                         <label>Name</label>
                                         <div class="row">
                                             <div class="form-group">
                                                     <input type="text" name="emp_name" class="form-control" placeholder="">
                                                 </div>
                                             </div>
+
                                         <label>Address</label>
                                         <div class="row">
                                            <div class="form-group">
                                                     <input type="text" name="emp_address" class="form-control" placeholder="">
                                                 </div>
                                             </div>
+
                                         <label>Phone</label>
                                         <div class="row">
                                             <div class="form-group">
@@ -268,12 +272,13 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     <div class="form-actions">
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-info">Add</button>
-                                            <button type="reset" class="btn btn-dark">Reset</button>
                                         </div>
                                     </div>
+                                    
                                 </form>
                             </div>
                         </div>

@@ -16,7 +16,8 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes();
+// ['register' => false]
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', function (Request $request){
@@ -29,9 +30,19 @@ Route::get('/logout', function (Request $request){
 });
 Route::get('/customers', 'CustomerController@index');
 Route::get('/customers/create', 'CustomerController@create');
-Route::get('/customers/{id}', 'CustomerController@update');
 Route::post('/customers', 'CustomerController@store');
+Route::patch('/customers/{customer}', 'CustomerController@update');
+Route::get('/customers/{customer}', 'CustomerController@show');
 
 Route::get('/employees', 'EmployeeController@index');
 Route::get('/employees/create', 'EmployeeController@create');
 Route::post('/employees', 'EmployeeController@store');
+// Route::get('/employees/{employee}', 'EmployeeController@edit');
+Route::patch('/employees/{employee}', 'EmployeeController@update');
+Route::get('/employees/{employee}', 'EmployeeController@show');
+
+
+Route::get('/index', 'LayoutController@index');
+Route::get('/calendar', 'LayoutController@calendar');
+
+Route::get('/customers/export', 'CustomerController@export');
