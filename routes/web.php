@@ -45,4 +45,4 @@ Route::get('/employees/{employee}', 'EmployeeController@show');
 Route::get('/index', 'LayoutController@index');
 Route::get('/calendar', 'LayoutController@calendar');
 
-Route::get('/customers/export', 'CustomerController@export');
+Route::get('/trucks', 'TruckController@index');

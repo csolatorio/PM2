@@ -151,8 +151,6 @@
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/calendar"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                                     class="hide-menu">Calendar</span></a></li>
-
-                        <li class="list-divider"></li>
                     
                         </li>
                         </li>
@@ -215,10 +213,6 @@
                                                     </div>
                                                     <!-- checkbox -->
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                            id="drop-remove">
-                                                        <label class="custom-control-label" for="drop-remove">Remove
-                                                            after drop</label>
                                                     </div>
                                                 </div>
                                             </div>

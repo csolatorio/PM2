@@ -212,7 +212,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Customers</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">ADD CUSTOMERS</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 
@@ -236,67 +236,99 @@
                 <!-- Start Page Content -->
                 <!-- ===================
                     =========================================== -->
+
                 <!-- basic table -->
-                 <div class="row">
-                    <div class="col-5">
+                 <!-- <div class="row">
+                    <div class="col-10"> -->
+                        <div class="col-10">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Add Customer</h4>
                      <form method="post" action="/customers">
                     @csrf
                     <div class="form-body">
+                    <div>
+                    <select class="custom-select" style="width: 260px;" name="plate_num">
+                      <option selected>Plate No.</option>
+                      <option value="MVY642">MVY642</option>
+                      <option value="MVY972">MVY972</option>
+                      <option value="ZRL869">ZRL869</option>
+                       <option value="TEMP005">TEMP005</option>
+                       <option value="TEMP899">TEMP899</option>
+                    </select>
+                    </div>
+                    <br>    
 
-                    <label>Customer Name</label>
                     <div class="row">
+                    <div class="col-md-5">
                     <div class="form-group">
+                    <label>Customer Name</label>
                         <input type="text" name="cus_name" class="form-control">
                     </div>
                     </div>
 
-                    <label>Trucks Waybill No.</label>
-                    <div class="row">
+                    <div class="col-md-5">
                     <div class="form-group">
-                        <input type="number" name="cus_truck" class="form-control">
+                    <label>Trucks WB No.</label>
+                        <input type="text" name="cus_truck" class="form-control">
+                    </div>
                     </div>
                     </div>
 
-                    <label>Van Qty</label>
                     <div class="row">
+                    <div class="col-md-5">
                     <div class="form-group">
-                        <input type="text" name="cus_vanqty" class="form-control">
+                        <br>
+                        <select class="custom-select" style="width: 360px;" name="cus_vanqty">
+                      <option selected>VAN QTY</option>
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="40">40</option>
+                    </select>
                     </div>
                     </div>
 
-                    <label>Van Number</label>
-                    <div class="row">
+                    <div class="col-md-5">
                     <div class="form-group">
-                        <input type="text" name="cus_vannumber" class="form-control">
+                        <br>
+                    <select class="custom-select" style="width: 360px;" name="cus_description">
+                    <option selected>DESCRIPTION</option>
+                      <option value="FULLS">FULLS</option>
+                      <option value="EMPTY">EMPTY</option>
+                    </select>
                     </div>
                     </div>
+                    </div>
+
+                    
+
+                    <div class="row">
+                    <div class="col-md-5">
+                    <div class="form-group">
                     <label>Destination</label>
-                    <div class="row">
-                    <div class="form-group">
                         <input type="text" name="cus_destination" class="form-control">
                     </div>
                     </div>
 
-                    <label>Description</label>
-                    <div class="row">
+                    <div class="col-md-5">
                     <div class="form-group">
-                    <input type="text" name="cus_description" class="form-control">
+                    <label>Van Number</label>
+                        <input type="text" name="cus_vannumber" class="form-control">
+                    </div>
                     </div>
                     </div>
 
-                    <label>Amount</label>
                     <div class="row">
+                    <div class="col-md-5">
                     <div class="form-group">
-                    <input type="text" name="cus_amount" class="form-control">
+                    <label>Amount</label>
+                        <input type="text" name="cus_amount" class="form-control">
                     </div>
                     </div>
+                </div>
 
                     <div class="form-actions">
                      <div class="text-right">
-                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="submit" class="btn btn-success">ADD CUSTOMER</button>
                     </div>
                 </div>
                   </form>

@@ -16,12 +16,14 @@ class CreateCustomersTable extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('cus_truck');
+            $table->string('plate_num');
             $table->string('cus_vanqty');
             $table->string('cus_vannumber');
             $table->string('cus_name');
             $table->string('cus_destination');
             $table->string('cus_description');
             $table->decimal('cus_amount', 9,2);
+            $table->Integer('hours')->default(0);
             $table->timestamps();
         });
     }

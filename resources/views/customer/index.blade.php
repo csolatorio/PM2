@@ -225,6 +225,25 @@
                 <!-- basic table -->
                  <a href="/customers/create" class="btn btn-success"><i data-feather="user-plus" class="feather-icon"></i><span class="hide-menu"> Add</span></a>
 
+                 <form action="/customers" method="GET" role="search">
+                    {{ csrf_field() }}
+                    <div class="input-group">
+                        <select class="custom-select" name="plate_num">
+                          <option selected>Plate No.</option>
+                          <option value="MVY642">MVY642</option>
+                          <option value="MVY972">MVY972</option>
+                          <option value="ZRL869">ZRL869</option>
+                           <option value="TEMP005">TEMP005</option>
+                           <option value="TEMP899">TEMP899</option>
+                        </select>
+                        
+                        <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                        <i data-feather="search" class="feather-icon"></i>
+                        </button>
+                        </span>
+                    </div>
+                </form>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -234,23 +253,25 @@
                                         style="width:100%">
                                         <thead>
                                             <tr>
+                                                <th>Plate No.</th>
                                                 <th>Customer Name</th>
                                                 <th>Date</th>
                                                 <th>Way Bill No.</th>
                                                 <th>Qty of Van</th>
                                                 <th>Van Number</th>
-                                                
                                                 <th>Destination</th>
                                                 <th>Description</th>
                                                 <th>Amount</th>
+                                                <th>Delivery Time</th>
+                                                <th>STATUS</th>
                                                 <th>Manage</th>
                                             </tr>
                                             
-
                                         </thead>
                                         <tbody>
                                             @foreach($customers as $customer)
                                             <tr>
+                                                <th>{{$customer->plate_num}}</th>
                                                 <th>{{$customer->cus_name}}</th>
                                                 <th>{{$customer->created_at}}</th>
                                                 <th>{{$customer->cus_truck}}</th>
@@ -259,6 +280,17 @@
                                                 <th>{{$customer->cus_destination}}</th>
                                                 <th>{{$customer->cus_description}}</th>
                                                 <th>{{$customer->cus_amount}}</th>
+                                                <th></th>
+                                                <th>
+                                                    @if (\Carbon\Carbon::parse($customer->created_at)->diffInHours($customer->updated_at)) 
+                                                        @if(\Carbon\Carbon::parse($customer->created_at)->diffInHours($customer->updated_at) <= $customer->hours)
+                                                            On Time
+                                                        @else 
+                                                            Delayed
+                                                        @endif
+                                                    @endif
+
+                                                </th>
                                                  <th><a href="/customers/{{$customer->id}}"><i data-feather="edit" class="feather-icon"></a></th>
                                             </tr>
                                             @endforeach
@@ -266,7 +298,7 @@
                                         </tbody>
                                          <tr>
                                             <td>Total Amount</td>
-                                            <td colspan="9" style="text-align: right; padding-right: 7rem;">{{number_format($grandTotal , 2)}}</td>
+                                            <td colspan="9" style="text-align: right; padding-right: 10rem;">{{number_format($grandTotal , 2)}}</td>
                                         </tr>
                                     </table>
                                 </div>
