@@ -165,11 +165,6 @@
                                 aria-expanded="false"><i data-feather="users" class="feather-icon"></i><span
                                     class="hide-menu">Employees</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link" href="/reports"
-                                aria-expanded="false"><i data-feather="paperclip" class="feather-icon"></i><span
-                                    class="hide-menu">Reports
-                                </span></a>
-                        </li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/calendar"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                                     class="hide-menu">Calendar</span></a></li>
@@ -280,7 +275,7 @@
                                                 <th>{{$customer->cus_destination}}</th>
                                                 <th>{{$customer->cus_description}}</th>
                                                 <th>{{$customer->cus_amount}}</th>
-                                                <th></th>
+                                                <th>{{$customer->updated_at}}</th>
                                                 <th>
                                                     @if (\Carbon\Carbon::parse($customer->created_at)->diffInHours($customer->updated_at)) 
                                                         @if(\Carbon\Carbon::parse($customer->created_at)->diffInHours($customer->updated_at) <= $customer->hours)
@@ -289,7 +284,6 @@
                                                             Delayed
                                                         @endif
                                                     @endif
-
                                                 </th>
                                                  <th><a href="/customers/{{$customer->id}}"><i data-feather="edit" class="feather-icon"></a></th>
                                             </tr>

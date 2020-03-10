@@ -122,26 +122,10 @@
                                         class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="mail"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    Inbox</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    Account Setting</a>
-                                <div class="dropdown-divider"></div>
+                                
                                 <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Logout</a>
-                                <div class="dropdown-divider"></div>
-                                <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">View
-                                        Profile</a></div>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -177,12 +161,6 @@
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/employees"
                                 aria-expanded="false"><i data-feather="users" class="feather-icon"></i><span
                                     class="hide-menu">Employees</span></a></li>
-
-                        <li class="sidebar-item"> <a class="sidebar-link" href="/reports"
-                                aria-expanded="false"><i data-feather="paperclip" class="feather-icon"></i><span
-                                    class="hide-menu">Reports
-                                </span></a>
-                        </li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/calendar"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                                     class="hide-menu">Calendar</span></a></li>
@@ -284,9 +262,9 @@
                         <br>
                         <select class="custom-select" style="width: 360px;" name="cus_vanqty" value="{{ $customer->cus_vanqty }}">
                       <option selected>VAN QTY</option>
-                      <option value="10">10</option>
-                      <option value="20">20</option>
-                      <option value="40">40</option>
+                      <option value="{{ $customer->cus_vanqty }}">10</option>
+                      <option value="{{ $customer->cus_vanqty }}">20</option>
+                      <option value="{{ $customer->cus_vanqty }}">40</option>
                     </select>
                     </div>
                     </div>

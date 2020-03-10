@@ -165,11 +165,7 @@
                                 aria-expanded="false"><i data-feather="users" class="feather-icon"></i><span
                                     class="hide-menu">Employees</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link" href="/reports"
-                                aria-expanded="false"><i data-feather="paperclip" class="feather-icon"></i><span
-                                    class="hide-menu">Reports
-                                </span></a>
-                        </li>
+                        
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/calendar"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                                     class="hide-menu">Calendar</span></a></li>

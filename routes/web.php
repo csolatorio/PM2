@@ -46,3 +46,6 @@ Route::get('/index', 'LayoutController@index');
 Route::get('/calendar', 'LayoutController@calendar');
 
 Route::get('/trucks', 'TruckController@index');
+
+Route::get('pdf_form', 'PdfController@pdfForm');
+ Route::get('pdf_download', 'PdfController@pdfDownload');

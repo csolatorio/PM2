@@ -211,9 +211,6 @@
                                                                 class="fa fa-circle text-warning mr-2"></i>Pay Day
                                                         </div>
                                                     </div>
-                                                    <!-- checkbox -->
-                                                    <div class="custom-control custom-checkbox">
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
